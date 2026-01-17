@@ -1,0 +1,35 @@
+pip install scikit-learn
+from sklearn.tree import DecisionTreeClassifier
+
+# Training data
+# Example: [hours_studied, hours_slept]
+X = [
+    [1, 5],
+    [2, 6],
+    [3, 7],
+    [4, 8],
+    [5, 9]
+]
+
+# Labels (0 = Fail, 1 = Pass)
+y = [0, 0, 0, 1, 1]
+
+# Create AI model
+ai = DecisionTreeClassifier()
+
+# Train AI
+ai.fit(X, y)
+
+# Test AI
+hours_studied = int(input("Hours studied: "))
+hours_slept = int(input("Hours slept: "))
+
+prediction = ai.predict([[hours_studied, hours_slept]])
+
+if prediction[0] == 1:
+    print("AI: You will PASS ✅")
+else:
+    print("AI: You will FAIL ❌")
+Hours studied: 4
+Hours slept: 8
+AI: You will PASS ✅
